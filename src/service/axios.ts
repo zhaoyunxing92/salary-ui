@@ -1,21 +1,19 @@
-import axios, { AxiosInstance, AxiosRequestConfig, AxiosResponse } from 'axios';
+import axios, { AxiosInstance, AxiosResponse } from 'axios';
 import { message } from 'ant-design-vue';
-import { useStore } from '../store';
-import router from '../router'
 
-const $http: AxiosInstance = axios.create({
+
+const instance: AxiosInstance = axios.create({
     // baseURL: 'http://192.168.10.2:18080/rest/api',
-    baseURL: 'http://localhost:18080/rest/api',
-    // baseURL: '/mock',
+    // baseURL: 'http://localhost:18080/rest/api',
+    baseURL: '/mock',
     timeout: 6000,
     headers: {
-        Accept: 'application/json',
         'Content-Type': 'application/json; charset=utf-8'
     },
 });
 
 // axios 实例拦截响应
-$http.interceptors.response.use(
+instance.interceptors.response.use(
     (res: AxiosResponse) => {
         if (res.status === 200) {
             return res;
@@ -29,9 +27,6 @@ $http.interceptors.response.use(
         const {response} = err;
         if (response) {
             const {code, msg} = response.data
-            if (code === 401 || code == 403) {
-                await router.push({name: 'login'})
-            }
             message.error(`${code}:${msg}`);
             return Promise.reject(response.data);
         }
@@ -39,21 +34,6 @@ $http.interceptors.response.use(
         return Promise.reject({code: 500, msg: '网络异常'});
     }
 );
-
-// axios 实例拦截请求
-$http.interceptors.request.use(
-    (conf: AxiosRequestConfig) => {
-        const store = useStore()
-        conf.headers = {
-            ...conf.headers,
-            token: store.getToken
-        }
-        return conf;
-    },
-    (err: any) => {
-        return Promise.reject(err);
-    }
-)
 
 const convert = (status: number | string): string => {
     let msg: string;
@@ -96,4 +76,4 @@ const convert = (status: number | string): string => {
     }
     return msg;
 };
-export default $http;
+export default instance;

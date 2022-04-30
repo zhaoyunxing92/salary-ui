@@ -1,12 +1,7 @@
 import { App } from 'vue';
-import dayjs from 'dayjs'
-import 'dayjs/locale/zh-cn'
-import relativeTime from 'dayjs/plugin/relativeTime';
-
-dayjs.locale('zh-cn')
 
 type Filter = {
-    formatTime(time: number): string
+    formatType(time: string): string
 }
 
 declare module '@vue/runtime-core' {
@@ -16,12 +11,17 @@ declare module '@vue/runtime-core' {
 }
 export default (app: App) => {
     app.config.globalProperties.$filters = {
-        formatTime(time: number): string {
-            if (time == 0) {
-                return ''
+        formatType(type: string): string {
+            switch (type) {
+                case 'string':
+                    return '文本'
+                case 'number':
+                    return '数字'
+                case 'date':
+                    return '日期'
+                default:
+                    return '文本'
             }
-            dayjs.extend(relativeTime)
-            return dayjs(time).fromNow()
         }
     }
 }
