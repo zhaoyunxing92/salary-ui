@@ -1,12 +1,12 @@
 <template>
   <a-layout-sider class="aside" :collapsed="store.trigger" :trigger="null" collapsible>
     <div class="logo"/>
-    <a-menu :selectedKeys="store.selected" theme="dark" mode="inline">
+    <a-menu :openKeys="store.opened" :selectedKeys="store.selected" theme="dark" mode="inline">
       <a-menu-item key="dashboard" @click="to('dashboard')">
         <HomeOutlined/>
         <span>首页</span>
       </a-menu-item>
-      <a-sub-menu key="salary">
+      <a-sub-menu key="salary" @titleClick="titleClick('salary')">
         <template #icon>
           <SettingOutlined/>
         </template>
@@ -17,7 +17,7 @@
         </a-menu-item>
       </a-sub-menu>
 
-      <a-sub-menu key="field">
+      <a-sub-menu key="field" @titleClick="titleClick('field')">
         <template #icon>
           <SettingOutlined/>
         </template>
@@ -38,12 +38,15 @@ import { useStore } from '../store'
 
 const store = useStore()
 const router = useRouter()
-
 // 路由跳转
 const to = (path: string) => {
   store.setSelected(path)
   router.push({name: path})
 }
+
+const titleClick = (title: string) => {
+  store.setOpened(title)
+};
 </script>
 
 <style scoped lang="less">

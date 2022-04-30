@@ -4,24 +4,14 @@
     <inspection_tool class="HtmlUnknownTag" enabled="true" level="WARNING" enabled_by_default="true">
       <option name="myValues">
         <value>
-          <list size="17">
+          <list size="7">
             <item index="0" class="java.lang.String" itemvalue="nobr" />
             <item index="1" class="java.lang.String" itemvalue="noembed" />
             <item index="2" class="java.lang.String" itemvalue="comment" />
             <item index="3" class="java.lang.String" itemvalue="noscript" />
             <item index="4" class="java.lang.String" itemvalue="embed" />
             <item index="5" class="java.lang.String" itemvalue="script" />
-            <item index="6" class="java.lang.String" itemvalue="a-layout" />
-            <item index="7" class="java.lang.String" itemvalue="a-layout-content" />
-            <item index="8" class="java.lang.String" itemvalue="a-layout-header" />
-            <item index="9" class="java.lang.String" itemvalue="a-dropdown" />
-            <item index="10" class="java.lang.String" itemvalue="a-menu-item" />
-            <item index="11" class="java.lang.String" itemvalue="a-menu" />
-            <item index="12" class="java.lang.String" itemvalue="a-sub-menu" />
-            <item index="13" class="java.lang.String" itemvalue="a-layout-sider" />
-            <item index="14" class="java.lang.String" itemvalue="a-table" />
-            <item index="15" class="java.lang.String" itemvalue="a-popconfirm" />
-            <item index="16" class="java.lang.String" itemvalue="a-typography-link" />
+            <item index="6" class="java.lang.String" itemvalue="a-sub-menu" />
           </list>
         </value>
       </option>
