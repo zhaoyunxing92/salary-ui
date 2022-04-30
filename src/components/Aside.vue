@@ -6,7 +6,7 @@
         <HomeOutlined/>
         <span>首页</span>
       </a-menu-item>
-      <a-sub-menu key="salary" @titleClick="titleClick('salary')">
+      <a-sub-menu key="salary">
         <template #icon>
           <SettingOutlined/>
         </template>
@@ -17,7 +17,7 @@
         </a-menu-item>
       </a-sub-menu>
 
-      <a-sub-menu key="field" @titleClick="titleClick('field')">
+      <a-sub-menu key="field">
         <template #icon>
           <SettingOutlined/>
         </template>
@@ -40,13 +40,8 @@ const store = useStore()
 const router = useRouter()
 // 路由跳转
 const to = (path: string) => {
-  store.setSelected(path)
   router.push({name: path})
 }
-
-const titleClick = (title: string) => {
-  store.setOpened(title)
-};
 </script>
 
 <style scoped lang="less">
