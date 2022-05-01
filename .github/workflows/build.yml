@@ -30,6 +30,8 @@ jobs:
 
   push:
     runs-on: ubuntu-latest
+    needs:
+      - build
     steps:
       - name: Set up Docker Buildx
         id: buildx
