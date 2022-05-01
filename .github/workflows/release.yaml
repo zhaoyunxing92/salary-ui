@@ -45,7 +45,9 @@ jobs:
 
       - name: Get version
         id: get_version
-        run: echo ::set-output name=VERSION::${GITHUB_REF/refs\/tags\//}
+        run: |
+        ls -al
+        echo ::set-output name=VERSION::${GITHUB_REF/refs\/tags\//}
 
       - name: Build and push
         uses: docker/build-push-action@v2
