@@ -34,4 +34,5 @@ jobs:
         with:
           context: .
           file: ./Dockerfile
-          tags: salary/ui:${{github.event.pull_request.head.sha}}
+          push: true
+          tags: salary-ui:${{github.event.pull_request.head.sha}}
