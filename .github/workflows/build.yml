@@ -5,9 +5,8 @@ name: build
 
 on:
   push:
-    branches: [ main ]
-  pull_request:
-    branches: [ main ]
+    tags:
+      - 'v*'
 
 jobs:
   build:
@@ -50,6 +49,4 @@ jobs:
           context: .
           file: ./Dockerfile
           push: true
-          tags: |
-            hash=$(git rev-parse --short HEAD)
-            zhaoyunxing/salary-ui:$hash
+          tags: zhaoyunxing/salary-ui:${{ github.ref }}
