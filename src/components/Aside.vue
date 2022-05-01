@@ -1,32 +1,15 @@
 <template>
   <a-layout-sider class="aside" :collapsed="store.trigger" :trigger="null" collapsible>
     <div class="logo"/>
-    <a-menu :openKeys="store.opened" :selectedKeys="store.selected" theme="dark" mode="inline">
-      <a-menu-item key="dashboard" @click="to('dashboard')">
+    <a-menu :selectedKeys="store.selected" theme="dark" mode="inline">
+      <a-menu-item key="employee" @click="to('employee')">
         <HomeOutlined/>
-        <span>首页</span>
+        <span>员工列表</span>
       </a-menu-item>
-      <a-sub-menu key="salary">
-        <template #icon>
-          <SettingOutlined/>
-        </template>
-        <template #title>薪资组</template>
-        <a-menu-item key="salary-group" @click="to('salary-group')">
-          <DingdingOutlined/>
-          <span>列表</span>
-        </a-menu-item>
-      </a-sub-menu>
-
-      <a-sub-menu key="field">
-        <template #icon>
-          <SettingOutlined/>
-        </template>
-        <template #title>字段管理</template>
-        <a-menu-item key="field-list" @click="to('field-list')">
-          <DingdingOutlined/>
-          <span>字段列表</span>
-        </a-menu-item>
-      </a-sub-menu>
+      <a-menu-item key="field" @click="to('field')">
+        <HomeOutlined/>
+        <span>字段列表</span>
+      </a-menu-item>
     </a-menu>
   </a-layout-sider>
 </template>

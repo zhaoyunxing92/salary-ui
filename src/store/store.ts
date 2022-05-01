@@ -5,17 +5,12 @@ type salary = {
     trigger: boolean;
     // 选中的按钮
     selected: string[]
-    //
-    opened: string[]
 }
 export const useStore = defineStore('salary', {
-        state: () => ({trigger: false, selected: [], opened: []} as salary),
+        state: () => ({trigger: false, selected: []} as salary),
         actions: {
             setSelected(path: string): void {
                 this.selected.splice(0, 1, path);
-            },
-            setOpened(key: string): void {
-                this.opened.splice(0, 1, key);
             }
         },
         persist: {
@@ -30,11 +25,6 @@ export const useStore = defineStore('salary', {
                     key: 'selected',
                     storage: sessionStorage,
                     paths: ['selected']
-                },
-                {
-                    key: 'opened',
-                    storage: sessionStorage,
-                    paths: ['opened']
                 }
             ]
         }

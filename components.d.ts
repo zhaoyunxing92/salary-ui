@@ -13,7 +13,6 @@ declare module 'vue' {
     AMenuItem: typeof import('ant-design-vue/es')['MenuItem']
     APopconfirm: typeof import('ant-design-vue/es')['Popconfirm']
     Aside: typeof import('./src/components/Aside.vue')['default']
-    ASubMenu: typeof import('ant-design-vue/es')['SubMenu']
     ATable: typeof import('ant-design-vue/es')['Table']
     ATypographyLink: typeof import('ant-design-vue/es')['TypographyLink']
     Header: typeof import('./src/components/Header.vue')['default']

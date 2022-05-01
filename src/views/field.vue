@@ -34,8 +34,8 @@
 <script lang="ts" setup>
 import type { UnwrapRef } from 'vue';
 import { onMounted, reactive } from 'vue';
-import { useFieldService } from '../../service'
-import { Field } from '../../models';
+import { useFieldService } from '../service'
+import { Field } from '../models';
 
 const fieldService = useFieldService();
 const fields = reactive<Field[]>([]);

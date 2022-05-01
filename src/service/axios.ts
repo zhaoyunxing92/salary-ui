@@ -3,9 +3,8 @@ import { message } from 'ant-design-vue';
 
 
 const instance: AxiosInstance = axios.create({
-    // baseURL: 'http://192.168.10.2:18080/rest/api',
     // baseURL: 'http://localhost:18080/rest/api',
-    baseURL: '/mock',
+    baseURL: import.meta.env.MODE === 'develop' ? '/mock' : '/',
     timeout: 6000,
     headers: {
         'Content-Type': 'application/json; charset=utf-8'

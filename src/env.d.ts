@@ -6,6 +6,7 @@ declare module '*.vue' {
     const component: DefineComponent<{}, {}, any>
     export default component
 }
+
 declare module 'mockjs'
 declare module 'qs'
 declare module 'dayjs'
