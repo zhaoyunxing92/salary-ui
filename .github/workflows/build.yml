@@ -47,4 +47,4 @@ jobs:
           file: ./Dockerfile
           push: true
           tags: |
-            zhaoyunxing/salary-ui:v1.0.0
+            zhaoyunxing/salary-ui:${{github.event.pull_request.head.sha}}
